@@ -5,12 +5,12 @@
 typedef struct
 {
     Shape super;
-    int radius;
-    int centerX;
-    int centerY;
+    double radius;
+    double centerX;
+    double centerY;
 } Circle;
 
-void Circle_ctor(Circle *const me, int x, int y, int r, int color);
-int Circle_getR(Circle *const me);
+void Circle_ctor(Circle *const me, double x, double y, double r, int color);
+double Circle_getR(Circle *const me);
 
 #endif

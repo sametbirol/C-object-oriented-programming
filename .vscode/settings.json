@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "shape.h": "c",
-        "assert.h": "c"
+        "assert.h": "c",
+        "cmath": "c"
     }
 }

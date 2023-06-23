@@ -5,12 +5,12 @@
 typedef struct
 {
     Shape super;
-    int width;
-    int height;
+    double width;
+    double height;
 } Rectangle;
 
-void Rectangle_ctor(Rectangle *const me, int x, int y, int w, int h,int color);
-int Rectangle_getW(Rectangle *const me);
-int Rectangle_getH(Rectangle *const me);
+void Rectangle_ctor(Rectangle *const me, double x, double y, double w, double h,int color);
+double Rectangle_getW(Rectangle *const me);
+double Rectangle_getH(Rectangle *const me);
 
 #endif

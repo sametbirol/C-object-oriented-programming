@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include "circle.h"
-#define PI 3.1415926535897932384626433832795;
+#include "constants.h"
 
-static int Circle_draw_(Shape const *const me, int x0, int y0);
-static int Circle_area_(Shape const *const me);
+static int Circle_draw_(Shape const *const me, double x0, double y0);
+static double Circle_area_(Shape const *const me);
 
-void Circle_ctor(Circle *const me, int x, int y, int r, int color)
+void Circle_ctor(Circle *const me, double x, double y, double r, int color)
 {
     static struct VirtualTable vTbl = {
         &Circle_area_,
@@ -17,28 +17,26 @@ void Circle_ctor(Circle *const me, int x, int y, int r, int color)
     me->super.vPtr = &vTbl;
 }
 /* Getters*/
-int Circle_getR(Circle *const me)
+double Circle_getR(Circle *const me)
 {
     return me->radius;
 }
 
 /* Declare and define virtual functions to override base version*/
 
-static int Circle_draw_(Shape const *const me, int x0, int y0)
+static int Circle_draw_(Shape const *const me, double x0, double y0)
 {
 
     Circle const *const me_ = (Circle const *)me;
-    int x = me_->centerX;
-    int y = me_->centerY;
-    int r = me_->radius;
-    int result = ((x0 - x) * (x0 - x)/2 + (y0 - y) * (y0 - y) < r * r);
+    double x = me_->centerX;
+    double y = me_->centerY;
+    double r = me_->radius;
+    int result = ((x0 - x) * (x0 - x) + (y0 - y) * (y0 - y) < r * r);
     return result;
 }
-static int Circle_area_(Shape const *const me)
+static double Circle_area_(Shape const *const me)
 {
     Circle const *const me_ = (Circle const *)me;
-    printf("calculating area with indexes(%d,%d)",me->x,me->y);
-    double r = (double)(me_->radius);
-    int result = (int)r * r *PI;
-    return result;
+    // printf("calculating area of object centered at point(%lf,%lf)\n",me_->centerX,me_->centerY);
+    return me_->radius * me_->radius *PI;;
 }

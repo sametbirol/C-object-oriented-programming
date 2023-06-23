@@ -9,29 +9,29 @@ typedef struct Shape
     struct VirtualTable const *vPtr;
     // Basic attributes
     int color;
-    int x;
-    int y;
+    double x;
+    double y;
 } Shape;
 /* Initialize base function pointers*/
 struct VirtualTable
 {
-    int (*area)(Shape const *const me);
-    int (*draw)(Shape const *const me, int x0, int y0);
+    double (*area)(Shape const *const me);
+    int (*draw)(Shape const *const me, double x0, double y0);
 };
 
-void Shape_ctor(Shape *const me, int x, int y,int c);
+void Shape_ctor(Shape *const me, double x, double y,int c);
 
 /* Getters */
-int Shape_getX(Shape const *const me);
-int Shape_getY(Shape const *const me);
+double Shape_getX(Shape const *const me);
+double Shape_getY(Shape const *const me);
 
 /* I don't know what is this*/
-static inline int Shape_area(Shape const *const me)
+static inline double Shape_area(Shape const *const me)
 {
     return (*me->vPtr->area)(me);
 }
 
-static inline int Shape_draw(Shape const *const me, int x0, int y0)
+static inline int Shape_draw(Shape const *const me, double x0, double y0)
 {
     return (*me->vPtr->draw)(me,x0,y0);
 }
