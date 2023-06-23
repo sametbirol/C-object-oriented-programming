@@ -1,0 +1,32 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: gcc.exe etkin dosyayı derle",
+			"command": "C:\\mingw64\\bin\\gcc.exe",
+			"args": [
+				"-fdiagnostics-color=always",
+				"-g",
+				"-std=c99",
+				"-Wall",
+				"-Werror",
+				"${fileDirname}\\*.c",
+				"-lm",
+				"-o",
+				"${fileDirname}\\rooster.exe"
+			],
+			"options": {
+				"cwd": "C:\\mingw64\\bin"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"detail": "derleyici: C:\\mingw64\\bin\\gcc.exe"
+		}
+	]
+}

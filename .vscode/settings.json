@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "shape.h": "c",
+        "assert.h": "c"
+    }
+}
