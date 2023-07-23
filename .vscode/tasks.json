@@ -3,7 +3,7 @@
 	"tasks": [
 		{
 			"type": "cppbuild",
-			"label": "C/C++: gcc.exe etkin dosyayı derle",
+			"label": "C/C++: Compile C Files",
 			"command": "C:\\mingw64\\bin\\gcc.exe",
 			"args": [
 				"-fdiagnostics-color=always",
@@ -11,10 +11,12 @@
 				"-std=c99",
 				"-Wall",
 				"-Werror",
-				"${fileDirname}\\*.c",
+				"-I${workspaceFolder}\\include",   // Include path for header files
+				"${workspaceFolder}\\src\\*.c",    // Compile C source files in the src folder
+				"${workspaceFolder}\\shapes\\*.c", // Compile C source files in the shapes folder
 				"-lm",
 				"-o",
-				"${fileDirname}\\rooster.exe"
+				"${workspaceFolder}\\bin\\rooster.exe" // Output executable in the bin folder
 			],
 			"options": {
 				"cwd": "C:\\mingw64\\bin"
@@ -26,7 +28,8 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"detail": "derleyici: C:\\mingw64\\bin\\gcc.exe"
+			"detail": "Compiler: C:\\mingw64\\bin\\gcc.exe"
 		}
+		
 	]
 }
